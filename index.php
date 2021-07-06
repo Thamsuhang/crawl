@@ -188,6 +188,8 @@ array_shift($fundingIds); //removes the top empty option
                   <option value = "10">10</option>
                   <option value = "20">20</option>
                   <option value = "45">50</option>
+                  <option value = "45">100</option>
+                  <option value = "45">150</option>
                </select>
             </div>
             <div class = "form-group text-center">

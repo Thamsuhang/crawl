@@ -5,7 +5,7 @@ include('params.php');
 if ($_POST !== '') {
 
     $thisArray = Helper::makeRequest($_POST['post']);
-    $all = Helper::getContacts($thisArray, $_POST['count'],$fileLimit);
+    $all = Helper::getContacts($thisArray, $_POST['count']);
 }
 $document = $all;
 $newArray = [];

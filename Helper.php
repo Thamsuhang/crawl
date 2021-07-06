@@ -76,7 +76,7 @@ class Helper {
         return $result['mainlist'];
     }
 
-    public static function getContacts($data, $post,$limit) {
+    public static function getContacts($data,$limit) {
         $newArray = phpQuery::newDocumentHTML();
         $data = array_splice($data, 0, $limit);
         foreach ($data as $k => $d) {
