@@ -19,12 +19,14 @@ function CurlInit() {
 
 //end of curl
 $result = CurlInit();
+
 //calling curl function
 $document = phpQuery::newDocument($result); //creating new phpquery
 $selectArea = pq('#memberSearch_AreaOfPracticeId option');
 $selectFunding = pq('#memberSearch_FundingSchemeId option');
 $areaOfPracticeIds = [];
 $fundingIds = [];
+
 function makeSelectArray($data) {
     $type = [];
     foreach ($data as $k => $val) {
@@ -155,17 +157,16 @@ array_shift($fundingIds); //removes the top empty option
       </div>
       <div class="col-12">
          <form method = "post" action = "form.php" id="form">
-            <input type = "text" value = "2" name = "ServiceType" hidden>
-            <input type = "text" value = "state" name = "State" hidden>
-            <input type = "text" value = "" name = "Name" hidden>
-            <input type = "text" value = "" name = "PracticeName" hidden>
-            <input type = "text" value = "" name = "Location" hidden>
-            <input type = "text" value = "" name = "Location" hidden>
-            <input type = "number" value = "0" name = "Distance" hidden>
+            <input type = "text" value = "2" name = "post[ServiceType]" hidden>
+            <input type = "text" value = "state" name = "post[State]" hidden>
+            <input type = "text" value = "" name = "post[Name]" hidden>
+            <input type = "text" value = "" name = "post[PracticeName]" hidden>
+            <input type = "text" value = "" name = "post[Location]" hidden>
+            <input type = "number" value = "0" name = "post[Distance]" hidden>
 
             <div class = "form-group">
                <label for = "AreaOfPracticeId">Area Of Practice</label>
-               <select name = "AreaOfPracticeId" class = "form-control" id = "AreaOfPracticeId" required>
+               <select name = "post[AreaOfPracticeId]" class = "form-control" id = "AreaOfPracticeId" required>
                   <option value = ""> Select One</option>
                    <?php foreach ($areaOfPracticeIds as $k => $i): ?>
                       <option value = "<?= isset($i['id']) && $i['id'] !== '' ? $i['id'] : '' ?>"><?= isset($i['title']) && $i['title'] !== '' ? $i['title'] : '' ?></option>
@@ -174,7 +175,7 @@ array_shift($fundingIds); //removes the top empty option
             </div>
             <div class = "form-group">
                <label for = "FundingSchemeId">Funding Scheme</label>
-               <select name = "FundingSchemeId" class = "form-control" id = "FundingSchemeId">
+               <select name = "post[FundingSchemeId]" class = "form-control" id = "FundingSchemeId">
                   <option value = ""> Select One</option>
                    <?php foreach ($fundingIds as $k => $i): ?>
                       <option value = "<?= isset($i['id']) && $i['id'] !== '' ? $i['id'] : '' ?>"><?= isset($i['title']) && $i['title'] !== '' ? $i['title'] : '' ?></option>
