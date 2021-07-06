@@ -4,7 +4,7 @@ Instruction
 Place it in your localhost and run localhost/crawl
 **************************************** New Changes *****************************************
 All columns added (Note:Removed Email),
-Country name verification,
+Country name verification, appearance of '/' removed from unavailable data.
 Increased data size upto 150 (can be increased as required however requires a long period of run time)
 data around 150 requires about 3 min(can vary with internet speed)
 **************************************** My Approach *****************************************
