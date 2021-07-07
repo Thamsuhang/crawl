@@ -2,7 +2,7 @@ Author
 Yoyal Limbu
 Instruction
 Place it in your localhost and run localhost/crawl
-**************************************** New Changes *****************************************
+**************************************** New Changes and improvements *****************************************
 All columns added (Note:Removed Email),
 Country name verification,
 Appearance of '/' removed from unavailable data in funding scheme and area of practice.
