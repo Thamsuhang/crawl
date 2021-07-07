@@ -14,8 +14,8 @@ foreach (pq('div.content__row') as $k => $li) {
     $pq = pq($li);
     //for name and email//
     $name = $pq->find('div.title__tag')->text();
-//    $check= Helper::checkPracticeRepetition($newArray,'name',$name); //check repetition of practice name uncomment if necessary
-//    if($check == false) {
+    $check= Helper::checkPracticeRepetition($newArray,'name',$name); //check repetition of practice name uncomment if necessary
+    if($check == false) {
         $contactName = $pq->find('strong.name')->text();
         $string = $pq->find('.contact-heading')->siblings('a')->text();
         preg_match_all('/\d{8,10}/', $string, $phone);
@@ -46,11 +46,15 @@ foreach (pq('div.content__row') as $k => $li) {
         $newArray[$k]['fundingScheme(s)'] = (isset($onlyFundingString[1]) && $onlyFundingString[1] !== '') ? $onlyFundingString[1] : 'N/A';
         $newArray[$k]['AreaOfPractice(s'] = (isset($onlyAreaOfPractice[1]) && $onlyAreaOfPractice[1] !== '') ? $onlyAreaOfPractice[1] : 'N/A';
         //funding and area of practice end//
-//    }
+    }
 }
 
 //save csv
 Helper::CreateCsv($title, $newArray);
+echo '<pre>';
+print_r($newArray);
+echo '</pre>';
+die;
 
 
 

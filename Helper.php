@@ -76,21 +76,26 @@ class Helper {
         return $result['mainlist'];
     }
 
-    public static function getContacts($data,$limit) {
+    public static function getContacts($datum,$limit) {
         $newArray = phpQuery::newDocumentHTML();
-        $data = array_splice($data, 0, $limit);
-        foreach ($data as $k => $d) {
-            $url = 'https://www.otaus.com.au/search/getcontacts?ids=' . $d;
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            $result = (curl_exec($ch));
-            curl_close($ch);
-            $newArray->append($result);
+      $datum = array_splice($datum, 0, $limit);
+        $id='ids=';
+        if(count($datum) > 40) $datum=array_chunk($datum,45);
+        foreach ($datum as $k => $data) {
+                foreach ($data as $key => $d) {
+                    $id .= ($key == 0) ? $d : '&ids=' . $d;
+                }
+                $url = 'https://www.otaus.com.au/search/getcontacts?' . $id;
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, $url);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                $result = (curl_exec($ch));
+                curl_close($ch);
+                $newArray->append($result);
+            $id='ids=';
         }
-
-        return $newArray;
+       return $newArray;
     }
 
     public static function checkPracticeRepetition($array, $key, $val) {

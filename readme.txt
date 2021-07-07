@@ -4,9 +4,10 @@ Instruction
 Place it in your localhost and run localhost/crawl
 **************************************** New Changes *****************************************
 All columns added (Note:Removed Email),
-Country name verification, appearance of '/' removed from unavailable data.
-Increased data size upto 150 (can be increased as required however requires a long period of run time)
-data around 150 requires about 3 min(can vary with internet speed)
+Country name verification,
+Appearance of '/' removed from unavailable data in funding scheme and area of practice.
+Increased data size (can be increased as required however requires a long period of run time)
+
 **************************************** My Approach *****************************************
 Step1 : Got the area of practice and funding scheme id using phpquery from page ' https://www.otaus.com.au/find-an-ot';
 Step2 : Loaded it on the projects index page

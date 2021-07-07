@@ -185,11 +185,12 @@ array_shift($fundingIds); //removes the top empty option
             <div class = "form-group">
                <label for = "count" class = "control-label">How Many data do you wnat?</label>
                <select name = "count" id = "count" class = "form-control">
-                  <option value = "10">10</option>
-                  <option value = "20">20</option>
                   <option value = "45">50</option>
-                  <option value = "45">100</option>
-                  <option value = "45">150</option>
+                  <option value = "100">100</option>
+                  <option value = "150">150</option>
+                  <option value = "200">200</option>
+                  <option value = "300">300</option>
+                  <option value = "500">500+</option>
                </select>
             </div>
             <div class = "form-group text-center">
