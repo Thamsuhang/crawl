@@ -27,7 +27,7 @@ foreach (pq('div.content__row') as $k => $li) {
         //name and email end//
 
         //for address //
-        $addressArray = Helper::addAddress($pq,$country_list);
+        $addressArray = Helper::addAddress($pq,$country_list,$codes,$states);
         $newArray[$k]['street'] = (isset($addressArray['street']) && $addressArray['street'] !== '') ? $addressArray['street'] : 'N/A';
         $newArray[$k]['city'] = (isset($addressArray['city']) && $addressArray['city'] !== '') ? $addressArray['city'] : 'N/A';
         $newArray[$k]['state'] = (isset($addressArray['state']) && $addressArray['state'] !== '') ? $addressArray['state'] : 'N/A';

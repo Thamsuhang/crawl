@@ -1,4 +1,5 @@
 <?php
+
 $fileLimit=150;
 $title=['Practice Name',
         'Contact Name',
@@ -205,5 +206,16 @@ $country_list =[
         "Yemen",
         "Zambia",
         "Zimbabwe",
+];
+$codes = ['Nsw', 'Qld', 'Sa', 'Tas', 'Vic', 'Wa', 'Nt', 'Act'];
+$states = [
+        "New South Wales",
+        "Victoria",
+        "Queensland",
+        "Tasmania",
+        "South Australia",
+        "Western Australia",
+        "Northern Territory",
+        "Australian Capital Territory"
 ];
 

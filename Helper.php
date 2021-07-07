@@ -24,9 +24,8 @@ class Helper {
         header("Refresh:0");
     }
 
-    public static function addAddress($pq, $country_list) {
+    public static function addAddress($pq, $country_list,$codes,$states) {
         $AddresNode = $pq->find('p:nth-child(3)')->text();
-
         $newNode = explode('Funding Scheme(s):', $AddresNode);
         $addressString = preg_replace('/^(?<=)\s*/', '', $newNode[0]); //remove any extra space before a string
         $eachLineArray = explode(PHP_EOL, $addressString);
@@ -48,7 +47,7 @@ class Helper {
                             $a['city'] = $o;
                             break;
                         case 1:
-                            $a['state'] = $o;
+                            $a['state'] =  (in_array(ucwords(strtolower($o)), $states) || in_array(ucwords(strtolower($o)), $codes)  ) ? $o : 'N/A';;;
                             break;
                         case 2:
                             $a['postCode'] = $o;
@@ -80,11 +79,12 @@ class Helper {
         $newArray = phpQuery::newDocumentHTML();
       $datum = array_splice($datum, 0, $limit);
         $id='ids=';
-        if(count($datum) > 40) $datum=array_chunk($datum,45);
+        if(count($datum) > 45) $datum=array_chunk($datum,45);
         foreach ($datum as $k => $data) {
                 foreach ($data as $key => $d) {
                     $id .= ($key == 0) ? $d : '&ids=' . $d;
                 }
+               
                 $url = 'https://www.otaus.com.au/search/getcontacts?' . $id;
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, $url);
