@@ -51,10 +51,7 @@ foreach (pq('div.content__row') as $k => $li) {
 
 //save csv
 Helper::CreateCsv($title, $newArray);
-echo '<pre>';
-print_r($newArray);
-echo '</pre>';
-die;
+
 
 
 

@@ -10,10 +10,10 @@ class Helper {
         }
         // Close the file
         fclose($file);
-        self::downloadFile();
+        self::downloadFile($newArray);
     }
 
-    public static function downloadFile() {
+    public static function downloadFile($newArray) {
         $file = ("data.csv");
         $filetype = filetype($file);
         $filename = basename($file);

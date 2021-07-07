@@ -164,19 +164,17 @@ array_shift($fundingIds); //removes the top empty option
             <input type = "text" value = "" name = "post[Location]" hidden>
             <input type = "number" value = "0" name = "post[Distance]" hidden>
 
-            <div class = "form-group">
+            <div class = "form-group d-none">
                <label for = "AreaOfPracticeId">Area Of Practice</label>
                <select name = "post[AreaOfPracticeId]" class = "form-control" id = "AreaOfPracticeId" required>
-                  <option value = ""> Select One</option>
                    <?php foreach ($areaOfPracticeIds as $k => $i): ?>
                       <option value = "<?= isset($i['id']) && $i['id'] !== '' ? $i['id'] : '' ?>"><?= isset($i['title']) && $i['title'] !== '' ? $i['title'] : '' ?></option>
                    <?php endforeach; ?>
                </select>
             </div>
-            <div class = "form-group">
+            <div class = "form-group  d-none">
                <label for = "FundingSchemeId">Funding Scheme</label>
                <select name = "post[FundingSchemeId]" class = "form-control" id = "FundingSchemeId">
-                  <option value = ""> Select One</option>
                    <?php foreach ($fundingIds as $k => $i): ?>
                       <option value = "<?= isset($i['id']) && $i['id'] !== '' ? $i['id'] : '' ?>"><?= isset($i['title']) && $i['title'] !== '' ? $i['title'] : '' ?></option>
                    <?php endforeach; ?>
@@ -185,12 +183,10 @@ array_shift($fundingIds); //removes the top empty option
             <div class = "form-group">
                <label for = "count" class = "control-label">How Many data do you wnat?</label>
                <select name = "count" id = "count" class = "form-control">
-                  <option value = "45">50</option>
-                  <option value = "100">100</option>
-                  <option value = "150">150</option>
                   <option value = "200">200</option>
                   <option value = "300">300</option>
                   <option value = "500">500+</option>
+                  <option value = "1000">1000</option>
                </select>
             </div>
             <div class = "form-group text-center">
